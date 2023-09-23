@@ -22,3 +22,40 @@ name.addEventListener('blur', ()=>{
         
     }
 })
+
+email.addEventListener('blur', ()=>{
+    console.log("email is blurred");
+    // Validate email here
+    let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    let str = email.value;
+    console.log(regex, str);
+    if(regex.test(str)){
+        console.log('Your email is valid');
+        email.classList.remove('is-invalid');
+        
+    }
+    else{
+        console.log('Your email is not valid');
+        email.classList.add('is-invalid');
+        
+    }
+})
+
+phone.addEventListener('blur', ()=>{
+    console.log("phone is blurred");
+    // Validate phone here
+    let regex = /^([0-9]){10}$/;
+    let str = phone.value;
+    console.log(regex, str);
+    if(regex.test(str)){
+        console.log('Your phone is valid');
+        phone.classList.remove('is-invalid');
+      
+    }
+    else{
+        console.log('Your phone is not valid');
+        phone.classList.add('is-invalid');
+        
+        
+    }
+})

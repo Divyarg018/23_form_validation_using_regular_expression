@@ -17,6 +17,7 @@ name.addEventListener('blur', ()=>{
     if(regex.test(str)){
         console.log('Your name is valid');
         name.classList.remove('is-invalid');
+        validUser = true;
        
     }
     else{
@@ -36,6 +37,7 @@ email.addEventListener('blur', ()=>{
     if(regex.test(str)){
         console.log('Your email is valid');
         email.classList.remove('is-invalid');
+        validEmail = true;
         
     }
     else{
@@ -68,8 +70,21 @@ let submit = document.getElementById('submit');
 submit.addEventListener('click', (e)=>{
     e.preventDefault();
     console.log('you clicked on submit');
+    console.log(validEmail, validUser, validPhone);
     //submit your form here
+    if(validEmail && validUser && validPhone){
+        console.log('phone, email and user are valid. Submitting the form');
+        let success = document.getElementById('success');
+        success.classList.add('show');
+        failure.classList.remove('show');
+    }
+    else{
+        
+        console.log('One of phone, email and user are not valid. Hence not submitting the form. Please correct the errors and try again');
+        let failure = document.getElementById('failure');
+        failure.classList.add('show');
+        success.classList.remove('show');
+    }
 
-    let success = document.getElementById('success');
-    success.classList.add('show');
+  
 })

@@ -2,6 +2,10 @@ const name = document.getElementById('name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 
+let validEmail = false;
+let validPhone = false;
+let validUser = false;
+
 
 // console.log(name, email, phone);
 name.addEventListener('blur', ()=>{
@@ -58,4 +62,14 @@ phone.addEventListener('blur', ()=>{
         
         
     }
+})
+
+let submit = document.getElementById('submit');
+submit.addEventListener('click', (e)=>{
+    e.preventDefault();
+    console.log('you clicked on submit');
+    //submit your form here
+
+    let success = document.getElementById('success');
+    success.classList.add('show');
 })

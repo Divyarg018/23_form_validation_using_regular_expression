@@ -11,6 +11,12 @@
     <title>Welcome to Dragon Travels</title>
   </head>
   <body>
+    <div id="success" class="alert alert-success alert-dismissible fade" role="alert">
+        <strong>Success!</strong> Your travel request has been successfully submitted
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
       <div class="container">
         <h1>Dragon Travel Desk</h1>
 
@@ -33,27 +39,17 @@
             <div class="form-group">
                 <label for="car">Select your car</label>
                 <select class="form-control" id="car">
-                    <option>Omni</option>
-                    <option>Maruti 800</option>
+                    <option>BMW</option>
+                    <option>Kia</option>
                     <option>Ford Titanium</option>
-                    <option>Audi A4</option>
+                    <option>Fortuner</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="address">Enter your address</label>
                 <textarea class="form-control" name="address" id="address" rows="3"></textarea>
             </div>
-            <div class="form-group">
-                <label for="address">Enter your phone number</label>
-                <input class="form-control" name="phone" id="phone" rows="3">
-                <small id="emailvalid" class="form-text text-muted invalid-feedback">
-                        Your phone number must be 10 digit long
-                      </small>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Any other message...</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
+           
             <button id="submit" class="btn btn-primary">Submit</button>
         </form>
 

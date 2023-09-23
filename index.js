@@ -1,11 +1,12 @@
+console.log("This is project 4");
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
-
 let validEmail = false;
 let validPhone = false;
 let validUser = false;
-
+$('#failure').hide();
+$('#success').hide();
 
 // console.log(name, email, phone);
 name.addEventListener('blur', ()=>{
@@ -18,12 +19,11 @@ name.addEventListener('blur', ()=>{
         console.log('Your name is valid');
         name.classList.remove('is-invalid');
         validUser = true;
-       
     }
     else{
         console.log('Your name is not valid');
         name.classList.add('is-invalid');
-        
+        validUser = false;
         
     }
 })
@@ -38,12 +38,11 @@ email.addEventListener('blur', ()=>{
         console.log('Your email is valid');
         email.classList.remove('is-invalid');
         validEmail = true;
-        
     }
     else{
         console.log('Your email is not valid');
         email.classList.add('is-invalid');
-        
+        validEmail = false;
     }
 })
 
@@ -56,12 +55,12 @@ phone.addEventListener('blur', ()=>{
     if(regex.test(str)){
         console.log('Your phone is valid');
         phone.classList.remove('is-invalid');
-      
+        validPhone = true;
     }
     else{
         console.log('Your phone is not valid');
         phone.classList.add('is-invalid');
-        
+        validPhone = false;
         
     }
 })
@@ -69,22 +68,33 @@ phone.addEventListener('blur', ()=>{
 let submit = document.getElementById('submit');
 submit.addEventListener('click', (e)=>{
     e.preventDefault();
-    console.log('you clicked on submit');
+
+    console.log('You clicked on submit');
     console.log(validEmail, validUser, validPhone);
-    //submit your form here
+    
+    // Submit your form here
     if(validEmail && validUser && validPhone){
-        console.log('phone, email and user are valid. Submitting the form');
+        let failure = document.getElementById('failure');
+
+        console.log('Phone, email and user are valid. Submitting the form');
         let success = document.getElementById('success');
         success.classList.add('show');
-        failure.classList.remove('show');
+        // failure.classList.remove('show');
+        // $('#failure').alert('close');
+        $('#failure').hide();
+        $('#success').show();
+        
     }
     else{
-        
-        console.log('One of phone, email and user are not valid. Hence not submitting the form. Please correct the errors and try again');
+        console.log('One of Phone, email or user are not valid. Hence not submitting the form. Please correct the errors and try again');
         let failure = document.getElementById('failure');
         failure.classList.add('show');
-        success.classList.remove('show');
-    }
+        // success.classList.remove('show');
+        // $('#success').alert('hide');
+        $('#success').hide();
+        $('#failure').show();
+        }
 
-  
+    
+    
 })
